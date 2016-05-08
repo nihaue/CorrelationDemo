@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLearn.Demo.Messaging", "QuickLearn.Demo.Messaging\QuickLearn.Demo.Messaging.btproj", "{FFF92331-91C6-4842-A57F-4EA41D6BD04B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLearn.Demo.XmlUtility.Tests", "QuickLearn.Demo.XmlUtility.Tests\QuickLearn.Demo.XmlUtility.Tests.csproj", "{C0AD1E99-61CB-4F60-AF27-FC0F1485E0C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLearn.Demo.XmlUtility", "QuickLearn.Demo.XmlUtility\QuickLearn.Demo.XmlUtility.csproj", "{C8859280-C197-46B0-A5B6-CF9657788C99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLearn.ApiApps.XmlPropertyPromotion", "QuickLearn.ApiApps.XmlPropertyPromotion\QuickLearn.ApiApps.XmlPropertyPromotion.csproj", "{7DF5D32D-C09B-4251-A494-18868343A86F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLearn.ApiApps.Correlation", "QuickLearn.ApiApps.Correlation\QuickLearn.ApiApps.Correlation.csproj", "{B1DE2EBA-0541-4D31-8996-1E475F2EB99F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BizTalk 2016", "BizTalk 2016", "{7BDD8D22-1775-4087-A5C2-E63ED0A2E616}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{09D762F1-5060-489F-8F6B-69F72B3A7A4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFF92331-91C6-4842-A57F-4EA41D6BD04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF92331-91C6-4842-A57F-4EA41D6BD04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF92331-91C6-4842-A57F-4EA41D6BD04B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FFF92331-91C6-4842-A57F-4EA41D6BD04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF92331-91C6-4842-A57F-4EA41D6BD04B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFF92331-91C6-4842-A57F-4EA41D6BD04B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C0AD1E99-61CB-4F60-AF27-FC0F1485E0C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0AD1E99-61CB-4F60-AF27-FC0F1485E0C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0AD1E99-61CB-4F60-AF27-FC0F1485E0C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0AD1E99-61CB-4F60-AF27-FC0F1485E0C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8859280-C197-46B0-A5B6-CF9657788C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8859280-C197-46B0-A5B6-CF9657788C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8859280-C197-46B0-A5B6-CF9657788C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8859280-C197-46B0-A5B6-CF9657788C99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DF5D32D-C09B-4251-A494-18868343A86F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DF5D32D-C09B-4251-A494-18868343A86F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DF5D32D-C09B-4251-A494-18868343A86F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DF5D32D-C09B-4251-A494-18868343A86F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1DE2EBA-0541-4D31-8996-1E475F2EB99F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1DE2EBA-0541-4D31-8996-1E475F2EB99F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1DE2EBA-0541-4D31-8996-1E475F2EB99F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1DE2EBA-0541-4D31-8996-1E475F2EB99F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FFF92331-91C6-4842-A57F-4EA41D6BD04B} = {7BDD8D22-1775-4087-A5C2-E63ED0A2E616}
+		{C0AD1E99-61CB-4F60-AF27-FC0F1485E0C2} = {09D762F1-5060-489F-8F6B-69F72B3A7A4E}
+		{C8859280-C197-46B0-A5B6-CF9657788C99} = {09D762F1-5060-489F-8F6B-69F72B3A7A4E}
+	EndGlobalSection
+EndGlobal
