@@ -1,0 +1,151 @@
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+    "actions": {
+        "CreateInstanceSubscription": {
+            "conditions": [],
+            "inputs": {
+                "body": {
+                    "CorrelationProperty": "http://schemas.quicklearn.com/properties/demo#OrderId",
+                    "MessageBoxTopic": "@parameters('sbTopic')",
+                    "Properties": "@triggerBody()['Properties']",
+                    "ServiceBusConnectionString": "@parameters('sbConnection')",
+                    "SubscribedMessageType": "http://schemas.quicklearn.com/properties/demo#PrintJobUpdate"
+                },
+                "method": "post",
+                "uri": "https://correlationset.azurewebsites.net/correlation/subscription"
+            },
+            "metadata": {
+                "apiDefinitionUrl": "https://correlationset.azurewebsites.net/swagger/docs/v1",
+                "swaggerSource": "website"
+            },
+            "type": "Http"
+        },
+        "DeleteInstanceSubscription": {
+            "conditions": [
+                {
+                    "dependsOn": "When_a_message_is_received_in_topic_subscription_2"
+                }
+            ],
+            "inputs": {
+                "body": {
+                    "ServiceBusConnection": "@{body('CreateInstanceSubscription')['ServiceBusConnection']}",
+                    "SubscriptionName": "@{body('CreateInstanceSubscription')['SubscriptionName']}",
+                    "TopicName": "@{body('CreateInstanceSubscription')['TopicName']}"
+                },
+                "method": "delete",
+                "uri": "https://correlationset.azurewebsites.net/correlation/subscription"
+            },
+            "metadata": {
+                "apiDefinitionUrl": "https://correlationset.azurewebsites.net/swagger/docs/v1",
+                "swaggerSource": "website"
+            },
+            "type": "Http"
+        },
+        "Submit3DPrintJob": {
+            "conditions": [
+                {
+                    "dependsOn": "CreateInstanceSubscription"
+                }
+            ],
+            "inputs": {
+                "method": "post",
+                "queries": {
+                    "Head": "@json(xml(decodeBase64(triggerBody()['ContentData'])))['ns0:PrintJob'].Top",
+                    "JobId": "@json(xml(decodeBase64(triggerBody()['ContentData'])))['ns0:PrintJob'].OrderId"
+                },
+                "uri": "https://bobbledemo.azurewebsites.net/api/print"
+            },
+            "metadata": {
+                "apiDefinitionUrl": "https://bobbledemo.azurewebsites.net/swagger/docs/v1",
+                "swaggerSource": "website"
+            },
+            "type": "Http"
+        },
+        "Update3DPrintJob": {
+            "conditions": [
+                {
+                    "dependsOn": "DeleteInstanceSubscription"
+                }
+            ],
+            "inputs": {
+                "method": "post",
+                "queries": {
+                    "Body": "@json(xml(decodeBase64(body('When_a_message_is_received_in_topic_subscription_2')['ContentData'])))['ns0:PrintJobUpdate'].Body",
+                    "JobId": "@json(xml(decodeBase64(triggerBody()['ContentData'])))['ns0:PrintJob'].OrderId"
+                },
+                "uri": "https://bobbledemo.azurewebsites.net/api/printupdate"
+            },
+            "metadata": {
+                "apiDefinitionUrl": "https://bobbledemo.azurewebsites.net/swagger/docs/v1",
+                "swaggerSource": "website"
+            },
+            "type": "Http"
+        },
+        "When_a_message_is_received_in_topic_subscription_2": {
+            "conditions": [
+                {
+                    "dependsOn": "Submit3DPrintJob"
+                }
+            ],
+            "inputs": {
+                "host": {
+                    "api": {
+                        "runtimeUrl": "https://logic-apis-westeurope.azure-apim.net/apim/servicebus"
+                    },
+                    "connection": {
+                        "name": "@parameters('$connections')['servicebus']['connectionId']"
+                    }
+                },
+                "method": "get",
+                "path": "/@{encodeURIComponent(string(body('CreateInstanceSubscription')['TopicName']))}/subscriptions/@{encodeURIComponent(string(body('CreateInstanceSubscription')['SubscriptionName']))}/messages/head"
+            },
+            "type": "ApiConnection"
+        }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "parameters": {
+        "$connections": {
+            "defaultValue": {},
+            "type": "Object"
+        },
+        "sbConnection": {
+            "defaultValue": "YOUR SERVICE BUS CONNECTION HERE",
+            "type": "String"
+        },
+        "sbSubscription": {
+            "defaultValue": "printjobprocess",
+            "type": "String"
+        },
+        "sbTopic": {
+            "defaultValue": "published",
+            "type": "String"
+        },
+        "schemaRoot": {
+            "defaultValue": "http://images.quicklearn.com/schemas",
+            "type": "String"
+        }
+    },
+    "triggers": {
+        "When_a_message_is_received_in_topic_subscription": {
+            "conditions": [],
+            "inputs": {
+                "host": {
+                    "api": {
+                        "runtimeUrl": "https://logic-apis-westeurope.azure-apim.net/apim/servicebus"
+                    },
+                    "connection": {
+                        "name": "@parameters('$connections')['servicebus']['connectionId']"
+                    }
+                },
+                "method": "get",
+                "path": "/@{encodeURIComponent(string('published'))}/subscriptions/@{encodeURIComponent(string('printjobprocess'))}/messages/head"
+            },
+            "recurrence": {
+                "frequency": "Second",
+                "interval": 15
+            },
+            "type": "ApiConnection"
+        }
+    }
+}

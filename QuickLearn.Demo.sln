@@ -29,6 +29,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Messages", "Sample M
 		Sample Messages\Second-Bottom-OrderSandro1.xml = Sample Messages\Second-Bottom-OrderSandro1.xml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic Apps", "Logic Apps", "{05BD8D0F-0275-4B7B-AE8F-C32DCF35B54D}"
+	ProjectSection(SolutionItems) = preProject
+		Logic Apps\3dPrintProcess.json = Logic Apps\3dPrintProcess.json
+		Logic Apps\XmlIn-FILE.json = Logic Apps\XmlIn-FILE.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
