@@ -37,7 +37,7 @@ namespace QuickLearn.Demo.Messaging {
     <xs:complexType>
       <xs:sequence>
         <xs:element name=""OrderId"" type=""xs:string"" />
-        <xs:element name=""Status"" type=""xs:string"" />
+        <xs:element name=""Body"" type=""xs:string"" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

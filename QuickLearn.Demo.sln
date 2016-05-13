@@ -17,6 +17,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BizTalk 2016", "BizTalk 201
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{09D762F1-5060-489F-8F6B-69F72B3A7A4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLearn.Demo.Bobble", "QuickLearn.Demo.Bobble\QuickLearn.Demo.Bobble.csproj", "{21758701-4191-4CF6-98A0-48AAC5DCCAB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Messages", "Sample Messages", "{497E5C46-E53D-4EB1-8706-840FA53DB2F5}"
+	ProjectSection(SolutionItems) = preProject
+		Sample Messages\First-Top-OrderDR1.xml = Sample Messages\First-Top-OrderDR1.xml
+		Sample Messages\First-Top-OrderDR2.xml = Sample Messages\First-Top-OrderDR2.xml
+		Sample Messages\First-Top-OrderSandro1.xml = Sample Messages\First-Top-OrderSandro1.xml
+		Sample Messages\Second-Bottom-OrderDR1.xml = Sample Messages\Second-Bottom-OrderDR1.xml
+		Sample Messages\Second-Bottom-OrderDR2.xml = Sample Messages\Second-Bottom-OrderDR2.xml
+		Sample Messages\Second-Bottom-OrderSandro1.xml = Sample Messages\Second-Bottom-OrderSandro1.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +57,10 @@ Global
 		{B1DE2EBA-0541-4D31-8996-1E475F2EB99F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1DE2EBA-0541-4D31-8996-1E475F2EB99F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1DE2EBA-0541-4D31-8996-1E475F2EB99F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21758701-4191-4CF6-98A0-48AAC5DCCAB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21758701-4191-4CF6-98A0-48AAC5DCCAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21758701-4191-4CF6-98A0-48AAC5DCCAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21758701-4191-4CF6-98A0-48AAC5DCCAB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

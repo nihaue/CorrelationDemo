@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Bobble Head Console";
+}
+
+<div class="jumbotron">
+    <p><a href="/Home/Refresh" class="button blue big">Refresh the Display &raquo;</a></p>
+</div>
+
+<div class="row">
+    @foreach (var item in QuickLearn.Demo.Bobble.Controllers.PrintApiController.BobbleState.Keys)
+    {
+        <div class="col-md-4">
+            <h2>Order @item</h2>
+            <p style="align-content: center">
+                <img class="bobble" src="~/Content/@(QuickLearn.Demo.Bobble.Controllers.PrintApiController.BobbleState[item].Item1)Head.png" />
+                <br />
+                <img src="~/Content/@(QuickLearn.Demo.Bobble.Controllers.PrintApiController.BobbleState[item].Item2)Bottom.png" />
+            </p>
+        </div>
+    }
+    
+</div>

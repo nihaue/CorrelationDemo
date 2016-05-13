@@ -22,31 +22,17 @@ namespace QuickLearn.ApiApps.Correlation.Controllers
         [SwaggerResponse(HttpStatusCode.OK, "Instance Subscription Information", typeof(CreatedInstanceSubscription))]
         [Metadata("Create Instance Subscription", "Subscribes for a message with properties that correlate to known message properties for this Logic App instance", VisibilityType.Important)]
         public async Task<IHttpActionResult> CreateInstanceSubscription(
-                    [Metadata("Schema Blob Storage Container")]
-                    string documentSchemaRootUrl,
-                    [DynamicValueLookup(LookupOperation = "GetProperties",
-                                        Parameters = "documentSchemaRootUrl={documentSchemaRootUrl}",
-                                        ValuePath = "FullName",
-                                        ValueTitle = "Name")]
-                    [Metadata("Correlation Property")]
-                    string correlationProperty,
-
-                    [DynamicValueLookup(LookupOperation = "GetMessageTypes",
-                                        Parameters = "documentSchemaRootUrl={documentSchemaRootUrl}",
-                                        ValuePath = "FullName",
-                                        ValueTitle = "Name")]
-                    [Metadata("Subscribed Message Type")]
-                    string subscribedMessageType,
-
+                   
                     [FromBody]SubscriptionCreationDetails subscriptionCreationDetails)
         {
 
             string instanceSubscriptionId = await createSubscription(
                 subscriptionCreationDetails.ServiceBusConnectionString,
                 subscriptionCreationDetails.MessageBoxTopic,
-                subscribedMessageType,
-                correlationProperty,
-                subscriptionCreationDetails.Properties.Value<string>(correlationProperty));
+                subscriptionCreationDetails.SubscribedMessageType,
+                subscriptionCreationDetails.CorrelationProperty,
+                subscriptionCreationDetails.Properties.Value<string>(
+                    subscriptionCreationDetails.CorrelationProperty));
 
             // Using Ok instead of Created since the resource is not readily addressable
             return Ok(new CreatedInstanceSubscription()

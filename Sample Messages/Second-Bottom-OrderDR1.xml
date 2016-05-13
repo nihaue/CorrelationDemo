@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ns0:PrintJobUpdate xmlns:ns0="http://schemas.quicklearn.com/properties/demo">
+
+	<OrderId>DR1</OrderId>
+
+	<Body>Tux</Body>
+
+</ns0:PrintJobUpdate>
